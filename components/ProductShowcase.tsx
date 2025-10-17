@@ -12,13 +12,13 @@ const choiceProducts = {
     ]
 };
 
-const moqProducts = {
-    title: "Low MOQ",
-    subtitle: "Find products from certified low MOQ manufacturers & wholesale suppliers",
+const mostOfferedServices = {
+    title: "Most Offered Services",
+    subtitle: "Find providers for logistics, inspection & more",
     items: [
-        { name: "New Arrivals", description: "AI Chipsets", image: "https://i.ibb.co/M8P5b5q/ai-chipset.jpg" },
-        { name: "Quick Response", description: "Custom Drone Frames", image: "https://i.ibb.co/tZ7XgW9/drone-frame.jpg" },
-        { name: "Best Sellers", description: "FPV Goggles", image: "https://i.ibb.co/nLTTj7N/fpv-goggles.jpg" }
+        { name: "Sourcing", description: "Sourcing & Procurement", image: "https://i.ibb.co/gJF9zYk/sourcing-service.jpg" },
+        { name: "Quality Control", description: "Inspection Services", image: "https://i.ibb.co/yY5tC0G/quality-control-service.jpg" },
+        { name: "Logistics", description: "Shipping & Freight", image: "https://i.ibb.co/4Z5fLqG/logistics-service.jpg" }
     ]
 };
 
@@ -48,6 +48,24 @@ const services = [
     { name: "Customs & Compliance", description: "Navigate trade regulations", category: "Legal", image: "https://i.ibb.co/FmP7P0f/customs-service.jpg" },
     { name: "Private Labeling Service", description: "Build your own brand", category: "Branding", image: "https://i.ibb.co/gZ7kG2r/private-label-service.jpg" },
     { name: "IP & Patent Protection", description: "Safeguard your innovations", category: "Legal", image: "https://i.ibb.co/M600fSg/ip-service.jpg" },
+];
+
+const companies = [
+    { name: "InnovateTech Solutions", industry: "AI & Robotics", logo: "https://i.ibb.co/L8yC8wT/logo-innovate-tech.png" },
+    { name: "Global Logistics", industry: "Shipping & Freight", logo: "https://i.ibb.co/PN4HqXN/logo-global-logistics.png" },
+    { name: "GreenLeaf Organics", industry: "Agriculture & Food", logo: "https://i.ibb.co/3W6q0Gf/logo-green-leaf-organics.png" },
+    { name: "Summit Financials", industry: "Finance & Consulting", logo: "https://i.ibb.co/gZkQY4m/logo-summit-financials.png" },
+    { name: "Nexus Robotics", industry: "Industrial Automation", logo: "https://i.ibb.co/bF94X3g/logo-nexus-robotics.png" },
+    { name: "Visionary Designs", industry: "Branding & Marketing", logo: "https://i.ibb.co/tZJ5rYj/logo-visionary-designs.png" },
+];
+
+const professionals = [
+    { name: "Jane Doe", title: "AI Ethics Consultant", image: "https://i.ibb.co/k57Gz11/prof-jane-doe.jpg" },
+    { name: "John Smith", title: "Logistics Optimizer", image: "https://i.ibb.co/yqgZ0z3/prof-john-smith.jpg" },
+    { name: "Emily Chen", title: "Lead Product Designer", image: "https://i.ibb.co/qY5N2L7/prof-emily-chen.jpg" },
+    { name: "Michael B.", title: "Manufacturing Expert", image: "https://i.ibb.co/bFzV5hB/prof-michael-b.jpg" },
+    { name: "Sofia Khan", title: "IP Attorney", image: "https://i.ibb.co/JqfVzSj/prof-sofia-khan.jpg" },
+    { name: "David Lee", title: "Growth Marketing", image: "https://i.ibb.co/M8Vz0Jk/prof-david-lee.jpg" },
 ];
 
 const events = [
@@ -112,12 +130,13 @@ interface ShowcaseItemCardProps {
     line1: React.ReactNode;
     line2: React.ReactNode;
     buttonText: string;
+    imageContain?: boolean;
 }
 
-const ShowcaseItemCard: React.FC<ShowcaseItemCardProps> = ({ image, name, line1, line2, buttonText }) => (
+const ShowcaseItemCard: React.FC<ShowcaseItemCardProps> = ({ image, name, line1, line2, buttonText, imageContain = false }) => (
     <div className="bg-yellow-50 rounded-lg overflow-hidden group">
         <div className="bg-yellow-100 aspect-[4/3] flex items-center justify-center overflow-hidden">
-             <img src={image} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"/>
+             <img src={image} alt={name} className={`w-full h-full ${imageContain ? 'object-contain p-4' : 'object-cover'} group-hover:scale-105 transition-transform duration-300`}/>
         </div>
         <div className="p-3 flex flex-col" style={{minHeight: '160px'}}>
             <p className="text-sm text-stone-700 line-clamp-2 mb-2 h-10 flex-grow">{name}</p>
@@ -164,7 +183,7 @@ const ProductShowcase: React.FC = () => {
             {/* Top row of category cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <CategoryCard {...choiceProducts} />
-                <CategoryCard {...moqProducts} />
+                <CategoryCard {...mostOfferedServices} />
                 <CategoryCard {...oemProducts} />
             </div>
 
@@ -203,6 +222,44 @@ const ProductShowcase: React.FC = () => {
                     />
                 )}
             />
+
+            {/* Companies section */}
+            <ShowcaseSection
+                id="companies"
+                title="Featured Companies"
+                subtitle="Discover leading companies across various industries"
+                items={companies}
+                renderItem={(company) => (
+                    <ShowcaseItemCard
+                        key={company.name}
+                        image={company.logo}
+                        name={company.name}
+                        line1={<p className="text-sm font-semibold text-stone-700">{company.industry}</p>}
+                        line2={<p className="text-xs text-stone-500 mb-3">Verified Partner</p>}
+                        buttonText="View Profile"
+                        imageContain={true}
+                    />
+                )}
+            />
+
+            {/* Professionals section */}
+            <ShowcaseSection
+                id="professionals"
+                title="Industry Professionals"
+                subtitle="Connect with verified experts and consultants"
+                items={professionals}
+                renderItem={(prof) => (
+                     <ShowcaseItemCard
+                        key={prof.name}
+                        image={prof.image}
+                        name={prof.name}
+                        line1={<p className="text-sm font-semibold text-stone-700">{prof.title}</p>}
+                        line2={<p className="text-xs text-stone-500 mb-3">Top Rated</p>}
+                        buttonText="Connect"
+                    />
+                )}
+            />
+
 
             {/* Events section */}
              <ShowcaseSection

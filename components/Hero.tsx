@@ -1,19 +1,19 @@
 import React from 'react';
 
-const products = [
-    { name: 'Consumer Electronics', image: 'https://i.ibb.co/bF9gVz6/headphones.png' },
-    { name: 'Electronic Components', image: 'https://i.ibb.co/k1g2gXZ/circuit-board.png' },
-    { name: 'Gaming', image: 'https://i.ibb.co/Jq6QyT3/gaming-chair.png' },
-    { name: 'Mobile Electronics', image: 'https://i.ibb.co/B2v5YyC/smartwatch.png' },
-    { name: 'Smart Home, Security & Appliances', image: 'https://i.ibb.co/M57M1N4/smart-lock.png' },
-    { name: 'Lifestyle', image: 'https://i.ibb.co/MnvR2rC/pet-feeder.png' },
-    { name: 'Home & Kitchen', image: 'https://i.ibb.co/f2sKzX5/kitchen-utensils.png' },
-    { name: 'Sports & Outdoor', image: 'https://i.ibb.co/Y0RzWzR/tent.png' },
-    { name: 'Auto Parts', image: 'https://i.ibb.co/Yh4hSTt/brake-disc.png' },
-    { name: 'Fashion', image: 'https://i.ibb.co/pQGqJdG/handbag.png' },
+const industries = [
+    { name: 'AI & Robotics', image: 'https://i.ibb.co/b3wJ2k3/ai-processor-module.jpg' },
+    { name: 'Aerospace & Drones', image: 'https://i.ibb.co/yqVqFbf/long-range-drone.jpg' },
+    { name: 'Biotechnology', image: 'https://i.ibb.co/yWjHwHw/biotechnology.jpg' },
+    { name: 'Renewable Energy', image: 'https://i.ibb.co/FgnP7N2/renewable-energy.jpg' },
+    { name: 'FinTech Solutions', image: 'https://i.ibb.co/zZJ223B/fintech.jpg' },
+    { name: 'Cybersecurity', image: 'https://i.ibb.co/3mN5x4H/cybersecurity.jpg' },
+    { name: 'AR/VR Solutions', image: 'https://i.ibb.co/kMV0c0c/ar-vr.jpg' },
+    { name: 'Smart Manufacturing', image: 'https://i.ibb.co/ZBTX3Yf/smart-manufacturing.jpg' },
+    { name: 'IoT & Smart Devices', image: 'https://i.ibb.co/B2v5YyC/smartwatch.png' },
+    { name: 'GIS & Geospatial Tech', image: 'https://i.ibb.co/Gcx70y2/gis-geospatial.jpg' },
 ];
 
-const ProductCard: React.FC<{ name: string; image: string; }> = ({ name, image }) => (
+const IndustryCard: React.FC<{ name: string; image: string; }> = ({ name, image }) => (
     <div className="flex-shrink-0 w-48 bg-yellow-50 rounded-xl shadow-md overflow-hidden text-center transform hover:-translate-y-1 transition-transform duration-300 group">
         <div className="h-40 flex items-center justify-center p-4">
              <img className="max-h-full max-w-full object-contain" src={image} alt={name} />
@@ -30,8 +30,8 @@ const Hero: React.FC = () => {
         <div className="mt-8 rounded-2xl shadow-2xl overflow-hidden">
             <div className="p-6 bg-gradient-to-r from-amber-600 to-orange-700 text-white flex items-center justify-between">
                 <div>
-                    <h2 className="text-2xl font-bold">October 2025 VirelBiz Hong Kong Shows</h2>
-                    <p className="text-amber-200 text-sm">Hot products, new trends, more sourcing opportunities</p>
+                    <h2 className="text-2xl font-bold">VirelBiz Top Industries</h2>
+                    <p className="text-amber-200 text-sm">Highlighting innovation and technology leaders</p>
                 </div>
                 <button className="bg-yellow-50 text-amber-800 font-bold py-2 px-6 rounded-full hover:bg-yellow-100 transition-all shadow-md flex-shrink-0">
                     View More
@@ -39,8 +39,8 @@ const Hero: React.FC = () => {
             </div>
             <div className="bg-yellow-100 p-6">
                 <div className="flex space-x-6 pb-4 overflow-x-auto custom-scrollbar">
-                    {products.map((product, index) => (
-                        <ProductCard key={`${product.name}-${index}`} name={product.name} image={product.image} />
+                    {industries.map((industry, index) => (
+                        <IndustryCard key={`${industry.name}-${index}`} name={industry.name} image={industry.image} />
                     ))}
                 </div>
             </div>

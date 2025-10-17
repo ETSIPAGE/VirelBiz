@@ -4,9 +4,10 @@ import { StoreIcon, DocumentTextIcon, UserIcon, ChevronDownIcon, SearchIcon } fr
 const searchCategories = [
     { name: 'Products', href: '#products' },
     { name: 'Services', href: '#services' },
+    { name: 'Companies', href: '#companies' },
+    { name: 'Professionals', href: '#professionals' },
     { name: 'Events', href: '#events' },
     { name: 'Webinars', href: '#webinars' },
-    { name: 'Professionals', href: '#services' } // Links to services section
 ];
 
 interface HeaderProps {

@@ -6,22 +6,22 @@ const UpcomingIcon = () => (
     </svg>
 );
 
-const shows = [
+const categories = [
     {
-        name: 'Mobile Devices',
-        image: 'https://i.ibb.co/N2wzWwz/mobile-devices-show.png',
+        name: 'Products',
+        image: 'https://i.ibb.co/ZBTX3Yf/smart-manufacturing.jpg',
     },
     {
-        name: 'Lifestyle',
-        image: 'https://i.ibb.co/8scL0p6/lifestyle-show.png',
+        name: 'Services',
+        image: 'https://i.ibb.co/gJF9zYk/sourcing-service.jpg',
     },
     {
-        name: 'AI Products',
-        image: 'https://i.ibb.co/sK6VzP8/ai-products-show.png',
+        name: 'Professionals',
+        image: 'https://i.ibb.co/yqgZ0z3/prof-john-smith.jpg',
     },
     {
-        name: 'Smart Home & Mobile Accessories',
-        image: 'https://i.ibb.co/2Z5rYV8/smart-home-show.png',
+        name: 'Events',
+        image: 'https://i.ibb.co/k57Gq2G/electronics-event.jpg',
     }
 ];
 
@@ -39,7 +39,7 @@ const ShowCard: React.FC<{ name: string; image: string; }> = ({ name, image }) =
             </div>
             
             {/* Title on the image */}
-            <h3 className="absolute top-10 left-4 text-white font-bold text-xl leading-tight w-10/12 z-10">{name}</h3>
+            <h3 className="absolute top-10 left-4 text-white font-bold text-lg leading-tight w-10/12 z-10">{name}</h3>
         </div>
         
         {/* Bottom white part */}
@@ -58,8 +58,8 @@ const Banner: React.FC = () => {
                 <div className="relative lg:col-span-2 p-8 rounded-2xl bg-[url('https://i.ibb.co/zV9XwKk/tech-show-background.jpg')] bg-cover bg-center text-white flex flex-col justify-between overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-orange-600/70 to-amber-800/80"></div>
                     <div className="relative z-10">
-                        <h2 className="text-3xl font-bold leading-tight">October 2025 VirelBiz Hong Kong Shows | Virtual</h2>
-                        <p className="mt-3 text-base text-amber-200">Empower Tomorrow AI Today</p>
+                        <h2 className="text-3xl font-bold leading-tight">VirelBiz Webinar on AI Technology</h2>
+                        <p className="mt-3 text-base text-amber-200">Explore the future of AI with industry leaders.</p>
                     </div>
                     <div className="relative z-10 mt-6">
                          <button className="bg-yellow-50 text-amber-800 font-bold py-2 px-6 rounded-full hover:bg-yellow-100 transition-all shadow-md self-start">
@@ -70,8 +70,8 @@ const Banner: React.FC = () => {
 
                 {/* Right Cards Section */}
                 <div className="lg:col-span-3 grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    {shows.map(show => (
-                        <ShowCard key={show.name} name={show.name} image={show.image} />
+                    {categories.map(category => (
+                        <ShowCard key={category.name} name={category.name} image={category.image} />
                     ))}
                 </div>
             </div>
