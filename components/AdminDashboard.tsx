@@ -46,19 +46,31 @@ const AdminDashboard: React.FC = () => {
             }
             const data = await response.json();
             
-            let submissionsData;
-            if (typeof data.body === 'string') {
-                submissionsData = JSON.parse(data.body);
-            } else if (Array.isArray(data)) {
-                submissionsData = data;
-            } else {
-                submissionsData = data;
+            let potentialData = data;
+
+            // Handle AWS API Gateway proxy where body is a stringified JSON
+            if (potentialData && typeof potentialData.body === 'string') {
+                try {
+                    potentialData = JSON.parse(potentialData.body);
+                } catch (parseError) {
+                     throw new Error("Failed to parse API response body.");
+                }
+            } 
+            // Handle AWS API Gateway proxy where body is already an object
+            else if (potentialData && typeof potentialData.body !== 'undefined') {
+                potentialData = potentialData.body;
             }
+            
+            // At this point, potentialData is the core response payload.
+            // Now, extract the array from common structures, like an object with an 'items' property.
+            const submissionsData = Array.isArray(potentialData?.items) 
+                ? potentialData.items 
+                : potentialData;
             
             if (Array.isArray(submissionsData)) {
                  const submissionsWithIds = submissionsData.map((item, index) => ({
                     ...item,
-                    submissionId: item.submissionId || `${Date.now()}-${index}`,
+                    submissionId: item.submissionId || item.id || `${Date.now()}-${index}`,
                 }));
                 setSubmissions(submissionsWithIds.sort((a,b) => {
                     if (!a.createdAt || !b.createdAt) return 0;
