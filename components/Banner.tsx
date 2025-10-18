@@ -55,7 +55,7 @@ const Banner: React.FC = () => {
         <div className="p-4 rounded-2xl shadow-2xl bg-gradient-to-br from-stone-800 to-amber-900 border border-amber-700/50">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 items-stretch">
                 {/* Left Banner Section */}
-                <div className="relative lg:col-span-2 p-8 rounded-2xl bg-[url('https://i.ibb.co/zV9XwKk/tech-show-background.jpg')] bg-cover bg-center text-white flex flex-col justify-between overflow-hidden">
+                <div className="relative lg:col-span-2 p-8 rounded-2xl bg-[url('https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/81631128.cms')] bg-cover bg-center text-white flex flex-col justify-between overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-orange-600/70 to-amber-800/80"></div>
                     <div className="relative z-10">
                         <h2 className="text-3xl font-bold leading-tight">VirelBiz Webinar on AI Technology</h2>

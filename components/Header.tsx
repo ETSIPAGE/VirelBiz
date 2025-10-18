@@ -44,12 +44,12 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <header className="bg-yellow-50/90 shadow-sm sticky top-0 z-50">
+    <header className="bg-[#fbc819] shadow-sm sticky top-0 z-50">
       <div className="max-w-screen-xl mx-auto px-4">
         {/* Top Header Bar */}
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate('home')}>
-            <h1 className="text-3xl font-bold tracking-tighter text-stone-800">Virel<span className="text-amber-600 font-extrabold">Biz</span></h1>
+            <img src="https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Logo's+(344+x+169+px).gif" alt="VirelBiz Logo" className="h-14" />
           </div>
 
           <div className="flex-grow max-w-xl mx-8">
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
       </div>
       
       {/* Bottom Navigation Bar */}
-      <nav className="bg-yellow-100 border-t border-yellow-200">
+      <nav className="border-t border-amber-500/30">
         <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start text-sm font-medium py-2">
             <div className="flex items-center space-x-6">
                 <NavLink page="home" currentPage={currentPage} onNavigate={onNavigate}>Home</NavLink>
