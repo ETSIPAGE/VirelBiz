@@ -33,57 +33,57 @@ const oemProducts = {
 };
 
 const newProducts = [
-    { name: "Agricultural Spraying Drone with 30L tank", price: "3,500 - 3,800", moq: "1 Piece", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Agricultural+Sprayer+Drone.jpg" },
-    { name: "AI-Powered Autonomous Security Drone", price: "1,200 - 1,500", moq: "2 Pieces", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/AI-Powered+Autonomus+Security.png" },
-    { name: "Professional Cinematic FPV Drone Kit", price: "628 - 676", moq: "5 Pieces", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Drone.jpg" },
-    { name: "Autonomous Delivery Drone for Logistics", price: "5,000 - 5,500", moq: "1 Piece", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Medical.jpg" },
-    { name: "Industrial Inspection Drone with Thermal Cam", price: "2,200 - 2,450", moq: "1 Piece", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Solar+Product.jpg" },
-    { name: "AI Image Processing Module for Robotics", price: "293 - 345", moq: "10 Pieces", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/AI-Tool's.png" }
+    { name: "Agricultural Spraying Drone with 30L tank", price: "3,500 - 3,800", moq: "1 Piece", image: "https://i.ibb.co/RSC1x5N/agricultural-drone.jpg" },
+    { name: "AI-Powered Autonomous Security Drone", price: "1,200 - 1,500", moq: "2 Pieces", image: "https://i.ibb.co/fHnL9yK/security-drone-2.jpg" },
+    { name: "Professional Cinematic FPV Drone Kit", price: "628 - 676", moq: "5 Pieces", image: "https://i.ibb.co/xX4bJ8G/fpv-kit.jpg" },
+    { name: "Autonomous Delivery Drone for Logistics", price: "5,000 - 5,500", moq: "1 Piece", image: "https://i.ibb.co/JqKz3vj/delivery-drone-2.jpg" },
+    { name: "Industrial Inspection Drone with Thermal Cam", price: "2,200 - 2,450", moq: "1 Piece", image: "https://i.ibb.co/F8bV3S4/industrial-drone.jpg" },
+    { name: "AI Image Processing Module for Robotics", price: "293 - 345", moq: "10 Pieces", image: "https://i.ibb.co/b3wJ2k3/ai-processor-module.jpg" }
 ];
 
 const services = [
-    { name: "Sourcing & Procurement", description: "End-to-end assistance", category: "Consulting", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+1.jpg" },
-    { name: "Quality Control & Inspection", description: "Ensure product standards", category: "Verification", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+2.jpg" },
-    { name: "Logistics & Shipping", description: "Global freight solutions", category: "Logistics", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+3.jpg" },
-    { name: "Customs & Compliance", description: "Navigate trade regulations", category: "Legal", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+4.jpg" },
-    { name: "Private Labeling Service", description: "Build your own brand", category: "Branding", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+5.jpg" },
-    { name: "IP & Patent Protection", description: "Safeguard your innovations", category: "Legal", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+6.jpg" },
+    { name: "Sourcing & Procurement", description: "End-to-end assistance", category: "Consulting", image: "https://i.ibb.co/gJF9zYk/sourcing-service.jpg" },
+    { name: "Quality Control & Inspection", description: "Ensure product standards", category: "Verification", image: "https://i.ibb.co/yY5tC0G/quality-control-service.jpg" },
+    { name: "Logistics & Shipping", description: "Global freight solutions", category: "Logistics", image: "https://i.ibb.co/4Z5fLqG/logistics-service.jpg" },
+    { name: "Customs & Compliance", description: "Navigate trade regulations", category: "Legal", image: "https://i.ibb.co/FmP7P0f/customs-service.jpg" },
+    { name: "Private Labeling Service", description: "Build your own brand", category: "Branding", image: "https://i.ibb.co/gZ7kG2r/private-label-service.jpg" },
+    { name: "IP & Patent Protection", description: "Safeguard your innovations", category: "Legal", image: "https://i.ibb.co/M600fSg/ip-service.jpg" },
 ];
 
 const companies = [
-    { name: "Dronetv Simulator", industry: "Software Devlopment", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Dronesimulator.png" },
-    { name: "Drone Acadamy", industry: "Drone Acadamy", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/IDA.png" },
-    { name: "IPage UMS Solutions", industry: "Drone Services", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/473835922_1460897314830430_6571106853468755997_n.jpg" },
-    { name: "IPage Vision", industry: "Architecture", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/ipagevisionlogo.png" },
-    { name: "DroneTv", industry: "Media", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Drone+tv+.in.png" },
-    // { name: "Visionary Designs", industry: "Branding & Marketing", logo: "https://i.ibb.co/tZJ5rYj/logo-visionary-designs.png" },
+    { name: "InnovateTech Solutions", industry: "AI & Robotics", logo: "https://i.ibb.co/L8yC8wT/logo-innovate-tech.png" },
+    { name: "Global Logistics", industry: "Shipping & Freight", logo: "https://i.ibb.co/PN4HqXN/logo-global-logistics.png" },
+    { name: "GreenLeaf Organics", industry: "Agriculture & Food", logo: "https://i.ibb.co/3W6q0Gf/logo-green-leaf-organics.png" },
+    { name: "Summit Financials", industry: "Finance & Consulting", logo: "https://i.ibb.co/gZkQY4m/logo-summit-financials.png" },
+    { name: "Nexus Robotics", industry: "Industrial Automation", logo: "https://i.ibb.co/bF94X3g/logo-nexus-robotics.png" },
+    { name: "Visionary Designs", industry: "Branding & Marketing", logo: "https://i.ibb.co/tZJ5rYj/logo-visionary-designs.png" },
 ];
 
 const professionals = [
-    { name: "Jane Doe", title: "AI Ethics Consultant", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/istockphoto-2218963506-2048x2048.jpg" },
-    { name: "John Smith", title: "Logistics Optimizer", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/pr4.jpg" },
-    { name: "Emily Chen", title: "Lead Product Designer", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/austin-distel-7uoMmzPd2JA-unsplash.jpg" },
-    { name: "Michael B.", title: "Manufacturing Expert", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/christina-wocintechchat-com-PlikkWB79qs-unsplash.jpg" },
-    { name: "Sofia Khan", title: "IP Attorney", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/pr1.jpg" },
-    { name: "David Lee", title: "Growth Marketing", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/pr2.jpg" },
+    { name: "Jane Doe", title: "AI Ethics Consultant", image: "https://i.ibb.co/k57Gz11/prof-jane-doe.jpg" },
+    { name: "John Smith", title: "Logistics Optimizer", image: "https://i.ibb.co/yqgZ0z3/prof-john-smith.jpg" },
+    { name: "Emily Chen", title: "Lead Product Designer", image: "https://i.ibb.co/qY5N2L7/prof-emily-chen.jpg" },
+    { name: "Michael B.", title: "Manufacturing Expert", image: "https://i.ibb.co/bFzV5hB/prof-michael-b.jpg" },
+    { name: "Sofia Khan", title: "IP Attorney", image: "https://i.ibb.co/JqfVzSj/prof-sofia-khan.jpg" },
+    { name: "David Lee", title: "Growth Marketing", image: "https://i.ibb.co/M8Vz0Jk/prof-david-lee.jpg" },
 ];
 
 const events = [
-    { name: "Global Sources Electronics Show", date: "Oct 11-14, 2025", location: "Hong Kong", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.48+PM.jpeg" },
-    { name: "AI & Robotics Summit", date: "Nov 5-7, 2025", location: "Shenzhen", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM+(1).jpeg" },
-    { name: "Smart Home Expo", date: "Nov 18-21, 2025", location: "Online", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM+(2).jpeg" },
-    { name: "Fashion & Lifestyle Fair", date: "Dec 1-3, 2025", location: "Shanghai", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/1.jpeg" },
-    { name: "Industrial Automation Meetup", date: "Jan 15-17, 2026", location: "Online", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM+(4).jpeg" },
-    { name: "Medical Tech Conference", date: "Feb 22-24, 2026", location: "Singapore", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM+(5).jpeg" },
+    { name: "Global Sources Electronics Show", date: "Oct 11-14, 2025", location: "Hong Kong", image: "https://i.ibb.co/k57Gq2G/electronics-event.jpg" },
+    { name: "AI & Robotics Summit", date: "Nov 5-7, 2025", location: "Shenzhen", image: "https://i.ibb.co/BGC76Cg/robotics-event.jpg" },
+    { name: "Smart Home Expo", date: "Nov 18-21, 2025", location: "Online", image: "https://i.ibb.co/0JbHqgM/smart-home-event.jpg" },
+    { name: "Fashion & Lifestyle Fair", date: "Dec 1-3, 2025", location: "Shanghai", image: "https://i.ibb.co/fH1w1sF/fashion-event.jpg" },
+    { name: "Industrial Automation Meetup", date: "Jan 15-17, 2026", location: "Online", image: "https://i.ibb.co/zQ6ZJ1B/industrial-event.jpg" },
+    { name: "Medical Tech Conference", date: "Feb 22-24, 2026", location: "Singapore", image: "https://i.ibb.co/fC5f4Tj/medical-event.jpg" },
 ];
 
 const webinars = [
-    { name: "The Future of AI in Manufacturing", topic: "AI & Automation", host: "TechForward", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM+(6).jpeg" },
-    { name: "Sustainable Sourcing Strategies", topic: "Sustainability", host: "GreenTrade", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM+(7).jpeg" },
-    { name: "Navigating Global Logistics in 2026", topic: "Logistics", host: "ShipRight", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/p3.jpg" },
-    { name: "E-commerce Growth Hacks", topic: "E-commerce", host: "SellSmart", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM+(9).jpeg" },
-    { name: "Protecting Your Brand Internationally", topic: "IP Protection", host: "LegalEagle", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/WhatsApp+Image+2025-10-18+at+3.49.49+PM.jpeg" },
-    // { name: "Top Trends in Consumer Electronics", topic: "Market Trends", host: "VirelBiz Insights", image: "https://i.ibb.co/D9M8gP8/tech-webinar.jpg" },
+    { name: "The Future of AI in Manufacturing", topic: "AI & Automation", host: "TechForward", image: "https://i.ibb.co/9q0D0C7/ai-webinar.jpg" },
+    { name: "Sustainable Sourcing Strategies", topic: "Sustainability", host: "GreenTrade", image: "https://i.ibb.co/51b0gD6/sustainability-webinar.jpg" },
+    { name: "Navigating Global Logistics in 2026", topic: "Logistics", host: "ShipRight", image: "https://i.ibb.co/RzFp26w/logistics-webinar.jpg" },
+    { name: "E-commerce Growth Hacks", topic: "E-commerce", host: "SellSmart", image: "https://i.ibb.co/T1W7c07/ecommerce-webinar.jpg" },
+    { name: "Protecting Your Brand Internationally", topic: "IP Protection", host: "LegalEagle", image: "https://i.ibb.co/yQ5Gf7x/ip-webinar.jpg" },
+    { name: "Top Trends in Consumer Electronics", topic: "Market Trends", host: "VirelBiz Insights", image: "https://i.ibb.co/D9M8gP8/tech-webinar.jpg" },
 ];
 
 // --- Sub-components ---
@@ -249,8 +249,7 @@ const ProductShowcase: React.FC = () => {
                 subtitle="Connect with verified experts and consultants"
                 items={professionals}
                 renderItem={(prof) => (
-                    <ShowcaseItemCard
-                        className=""
+                     <ShowcaseItemCard
                         key={prof.name}
                         image={prof.image}
                         name={prof.name}
