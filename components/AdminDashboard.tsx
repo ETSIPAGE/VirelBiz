@@ -18,6 +18,29 @@ const industries = [
     "Information Technology & Services", "Healthcare & Pharmaceuticals", "Automotive", "Manufacturing & Industrial", "Consumer Goods & FMCG", "Fashion & Apparel", "Agriculture & Agribusiness", "Real Estate & Construction", "Financial Services", "Education", "Other"
 ];
 
+// Defines the field order based on the registration form for consistency
+const submissionFieldOrder = [
+    // Company Information
+    'companyName', 'incorporationDate', 'websiteUrl', 'promoCode',
+    // Trade Information
+    'brandName', 'gstin', 'operatingHours', 'cin', 'udyam', 'pan',
+    // Founder/MD Information
+    'founderName', 'founderPhone', 'directorEmail',
+    // Alternative Contact
+    'contactPersonName', 'contactPhone', 'contactEmail',
+    // Address Information
+    'officeAddress', 'country', 'state', 'city', 'postalCode',
+    // Industry
+    'industry', 'otherIndustry',
+    // Social Media Links
+    'linkedin', 'facebook', 'instagram', 'twitter', 'youtube',
+    // Support Contact
+    'supportEmail', 'supportContact',
+    // System fields
+    'id', 'createdAt', 'updatedAt', 'timestamap'
+];
+
+
 const AdminDashboard: React.FC = () => {
     const [submissions, setSubmissions] = useState<Submission[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -102,6 +125,10 @@ const AdminDashboard: React.FC = () => {
     }, [filteredSubmissions, currentPage]);
 
     const totalPages = Math.ceil(filteredSubmissions.length / itemsPerPage);
+    
+    const formatHeader = (key: string) => {
+        return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).trim();
+    };
 
     const handleResetFilters = () => {
         setSearchTerm('');
@@ -116,18 +143,20 @@ const AdminDashboard: React.FC = () => {
             return;
         }
         
-        const allKeys = new Set<string>();
-        filteredSubmissions.forEach(sub => {
-            Object.keys(sub).forEach(key => allKeys.add(key));
-        });
-        const headers = Array.from(allKeys);
+        // Find any keys in the data that are not in our predefined list to ensure all data is exported
+        const allDataKeys = new Set<string>();
+        filteredSubmissions.forEach(sub => Object.keys(sub).forEach(key => allDataKeys.add(key)));
+        const extraKeys = [...allDataKeys].filter(key => !submissionFieldOrder.includes(key));
+        
+        const finalHeaders = [...submissionFieldOrder, ...extraKeys];
 
-        const csvContent = [
-            headers.join(','),
-            ...filteredSubmissions.map(row => 
-                headers.map(header => JSON.stringify(row[header] || '')).join(',')
-            )
-        ].join('\n');
+        const csvHeaderRow = finalHeaders.map(formatHeader).join(',');
+
+        const csvRows = filteredSubmissions.map(row => 
+            finalHeaders.map(header => JSON.stringify(row[header] || '')).join(',')
+        );
+
+        const csvContent = [csvHeaderRow, ...csvRows].join('\n');
 
         const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
@@ -139,12 +168,6 @@ const AdminDashboard: React.FC = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-    };
-    
-    const mainColumns: (keyof Submission)[] = ['companyName', 'founderName', 'industry', 'country', 'createdAt', 'directorEmail', 'id'];
-
-    const formatHeader = (key: string) => {
-        return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).trim();
     };
 
     return (
@@ -216,10 +239,10 @@ const AdminDashboard: React.FC = () => {
                                                 <td colSpan={5} className="p-4">
                                                     <h4 className="font-bold text-md text-stone-800 mb-2 ml-2">Full Details</h4>
                                                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-xs p-2 rounded-lg bg-white/50">
-                                                        {Object.entries(sub).filter(([key]) => !mainColumns.includes(key as any) && sub[key]).map(([key, value]) => (
+                                                        {submissionFieldOrder.filter(key => sub[key]).map(key => (
                                                             <div key={key} className="p-2 break-words">
                                                                 <strong className="block text-stone-500 uppercase tracking-wider">{formatHeader(key)}</strong>
-                                                                <span className="text-stone-800">{String(value)}</span>
+                                                                <span className="text-stone-800">{String(sub[key])}</span>
                                                             </div>
                                                         ))}
                                                     </div>
