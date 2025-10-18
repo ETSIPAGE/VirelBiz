@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
           <div className="flex-grow max-w-xl mx-8">
             <div className="flex items-stretch border-2 border-amber-500 rounded-full overflow-hidden bg-yellow-100">
               <div className="relative">
-                <button 
+                < button 
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   onBlur={() => setTimeout(() => setIsDropdownOpen(false), 150)}
                   className="flex items-center pl-4 pr-3 h-full bg-yellow-50"
