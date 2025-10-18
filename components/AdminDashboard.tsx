@@ -4,7 +4,7 @@ import { SearchIcon, DownloadIcon, RefreshIcon } from './icons/Icons';
 
 type Submission = {
   [key: string]: any; 
-  submissionId: string;
+  id: string;
   companyName: string;
   founderName: string;
   directorEmail: string;
@@ -45,16 +45,23 @@ const AdminDashboard: React.FC = () => {
                 }
                 const data = await response.json();
                 
-                // The new API returns an array directly. The old API might have wrapped it in a `body` property.
-                // This logic handles both cases.
-                const parsedData = typeof data.body === 'string' ? JSON.parse(data.body) : data;
+                // The API might wrap the response in a `body` property which is a string.
+                const responsePayload = typeof data.body === 'string' ? JSON.parse(data.body) : data;
                 
-                if (Array.isArray(parsedData)) {
-                    setSubmissions(parsedData.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
+                let submissionsArray: Submission[];
+
+                if (responsePayload && Array.isArray(responsePayload.items)) {
+                    // Handles the case where the data is in an 'items' property, e.g., { count: X, items: [...] }
+                    submissionsArray = responsePayload.items;
+                } else if (Array.isArray(responsePayload)) {
+                    // Handles the case where the data is a direct array
+                    submissionsArray = responsePayload;
                 } else {
-                     console.error('API returned data but it was not an array:', parsedData);
+                     console.error('API returned data but it was not an array or in the expected format:', responsePayload);
                      throw new Error("Fetched data is not an array.");
                 }
+                
+                setSubmissions(submissionsArray.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
 
             } catch (e: any) {
                 console.error("Failed to fetch submissions. Reason:", e.message, e);
@@ -181,7 +188,7 @@ const AdminDashboard: React.FC = () => {
                                 <tr><td colSpan={5} className="text-center p-8 text-red-600 bg-red-50">{error}</td></tr>
                             ) : paginatedSubmissions.length > 0 ? (
                                 paginatedSubmissions.map((sub) => (
-                                    <tr key={sub.submissionId} className="bg-white border-b border-yellow-200 hover:bg-yellow-100/50">
+                                    <tr key={sub.id} className="bg-white border-b border-yellow-200 hover:bg-yellow-100/50">
                                         <td className="px-6 py-4 font-bold text-stone-800">{sub.companyName}</td>
                                         <td className="px-6 py-4">
                                             <div>{sub.founderName}</div>
