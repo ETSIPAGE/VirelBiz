@@ -22,6 +22,7 @@ const AdminDashboard: React.FC = () => {
     const [submissions, setSubmissions] = useState<Submission[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const [expandedRowId, setExpandedRowId] = useState<string | null>(null);
 
     // Filters and Search
     const [searchTerm, setSearchTerm] = useState('');
@@ -45,16 +46,13 @@ const AdminDashboard: React.FC = () => {
                 }
                 const data = await response.json();
                 
-                // The API might wrap the response in a `body` property which is a string.
                 const responsePayload = typeof data.body === 'string' ? JSON.parse(data.body) : data;
                 
                 let submissionsArray: Submission[];
 
                 if (responsePayload && Array.isArray(responsePayload.items)) {
-                    // Handles the case where the data is in an 'items' property, e.g., { count: X, items: [...] }
                     submissionsArray = responsePayload.items;
                 } else if (Array.isArray(responsePayload)) {
-                    // Handles the case where the data is a direct array
                     submissionsArray = responsePayload;
                 } else {
                      console.error('API returned data but it was not an array or in the expected format:', responsePayload);
@@ -117,12 +115,17 @@ const AdminDashboard: React.FC = () => {
             alert("No data to download.");
             return;
         }
+        
+        const allKeys = new Set<string>();
+        filteredSubmissions.forEach(sub => {
+            Object.keys(sub).forEach(key => allKeys.add(key));
+        });
+        const headers = Array.from(allKeys);
 
-        const headers = Object.keys(filteredSubmissions[0]);
         const csvContent = [
             headers.join(','),
             ...filteredSubmissions.map(row => 
-                headers.map(header => JSON.stringify(row[header])).join(',')
+                headers.map(header => JSON.stringify(row[header] || '')).join(',')
             )
         ].join('\n');
 
@@ -136,6 +139,12 @@ const AdminDashboard: React.FC = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+    };
+    
+    const mainColumns: (keyof Submission)[] = ['companyName', 'founderName', 'industry', 'country', 'createdAt', 'directorEmail', 'id'];
+
+    const formatHeader = (key: string) => {
+        return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).trim();
     };
 
     return (
@@ -188,16 +197,36 @@ const AdminDashboard: React.FC = () => {
                                 <tr><td colSpan={5} className="text-center p-8 text-red-600 bg-red-50">{error}</td></tr>
                             ) : paginatedSubmissions.length > 0 ? (
                                 paginatedSubmissions.map((sub) => (
-                                    <tr key={sub.id} className="bg-white border-b border-yellow-200 hover:bg-yellow-100/50">
-                                        <td className="px-6 py-4 font-bold text-stone-800">{sub.companyName}</td>
-                                        <td className="px-6 py-4">
-                                            <div>{sub.founderName}</div>
-                                            <div className="text-xs text-stone-500">{sub.directorEmail}</div>
-                                        </td>
-                                        <td className="px-6 py-4">{sub.industry}</td>
-                                        <td className="px-6 py-4">{sub.country}</td>
-                                        <td className="px-6 py-4">{sub.createdAt ? new Date(sub.createdAt).toLocaleDateString() : 'N/A'}</td>
-                                    </tr>
+                                    <React.Fragment key={sub.id}>
+                                        <tr 
+                                            className="bg-white border-b border-yellow-200 hover:bg-yellow-100/50 cursor-pointer"
+                                            onClick={() => setExpandedRowId(expandedRowId === sub.id ? null : sub.id)}
+                                        >
+                                            <td className="px-6 py-4 font-bold text-stone-800">{sub.companyName}</td>
+                                            <td className="px-6 py-4">
+                                                <div>{sub.founderName}</div>
+                                                <div className="text-xs text-stone-500">{sub.directorEmail}</div>
+                                            </td>
+                                            <td className="px-6 py-4">{sub.industry}</td>
+                                            <td className="px-6 py-4">{sub.country}</td>
+                                            <td className="px-6 py-4">{sub.createdAt ? new Date(sub.createdAt).toLocaleDateString() : 'N/A'}</td>
+                                        </tr>
+                                        {expandedRowId === sub.id && (
+                                            <tr className="bg-yellow-100/70">
+                                                <td colSpan={5} className="p-4">
+                                                    <h4 className="font-bold text-md text-stone-800 mb-2 ml-2">Full Details</h4>
+                                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2 text-xs p-2 rounded-lg bg-white/50">
+                                                        {Object.entries(sub).filter(([key]) => !mainColumns.includes(key as any) && sub[key]).map(([key, value]) => (
+                                                            <div key={key} className="p-2 break-words">
+                                                                <strong className="block text-stone-500 uppercase tracking-wider">{formatHeader(key)}</strong>
+                                                                <span className="text-stone-800">{String(value)}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </React.Fragment>
                                 ))
                             ) : (
                                 <tr><td colSpan={5} className="text-center p-8">No submissions found.</td></tr>
