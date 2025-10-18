@@ -9,19 +9,19 @@ const UpcomingIcon = () => (
 const categories = [
     {
         name: 'Products',
-        image: 'https://i.ibb.co/ZBTX3Yf/smart-manufacturing.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/p1.jpg',
     },
     {
         name: 'Services',
-        image: 'https://i.ibb.co/gJF9zYk/sourcing-service.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/p2.png',
     },
     {
         name: 'Professionals',
-        image: 'https://i.ibb.co/yqgZ0z3/prof-john-smith.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/1.jpeg',
     },
     {
         name: 'Events',
-        image: 'https://i.ibb.co/k57Gq2G/electronics-event.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/p3.jpg',
     }
 ];
 
@@ -55,7 +55,7 @@ const Banner: React.FC = () => {
         <div className="p-4 rounded-2xl shadow-2xl bg-gradient-to-br from-stone-800 to-amber-900 border border-amber-700/50">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 items-stretch">
                 {/* Left Banner Section */}
-                <div className="relative lg:col-span-2 p-8 rounded-2xl bg-[url('https://i.ibb.co/zV9XwKk/tech-show-background.jpg')] bg-cover bg-center text-white flex flex-col justify-between overflow-hidden">
+                <div className="relative lg:col-span-2 p-8 rounded-2xl bg-[url('https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/81631128.cms')] bg-cover bg-center text-white flex flex-col justify-between overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-orange-600/70 to-amber-800/80"></div>
                     <div className="relative z-10">
                         <h2 className="text-3xl font-bold leading-tight">VirelBiz Webinar on AI Technology</h2>
