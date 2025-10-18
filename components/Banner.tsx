@@ -9,19 +9,19 @@ const UpcomingIcon = () => (
 const categories = [
     {
         name: 'Products',
-        image: 'https://i.ibb.co/ZBTX3Yf/smart-manufacturing.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/p1.jpg',
     },
     {
         name: 'Services',
-        image: 'https://i.ibb.co/gJF9zYk/sourcing-service.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/p2.png',
     },
     {
         name: 'Professionals',
-        image: 'https://i.ibb.co/yqgZ0z3/prof-john-smith.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/1.jpeg',
     },
     {
         name: 'Events',
-        image: 'https://i.ibb.co/k57Gq2G/electronics-event.jpg',
+        image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/p3.jpg',
     }
 ];
 
