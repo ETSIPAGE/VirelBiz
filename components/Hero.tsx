@@ -1,16 +1,16 @@
 import React from 'react';
 
 const industries = [
-    { name: 'AI & Robotics', image: 'https://i.ibb.co/b3wJ2k3/ai-processor-module.jpg' },
-    { name: 'Aerospace & Drones', image: 'https://i.ibb.co/yqVqFbf/long-range-drone.jpg' },
-    { name: 'Biotechnology', image: 'https://i.ibb.co/yWjHwHw/biotechnology.jpg' },
-    { name: 'Renewable Energy', image: 'https://i.ibb.co/FgnP7N2/renewable-energy.jpg' },
-    { name: 'FinTech Solutions', image: 'https://i.ibb.co/zZJ223B/fintech.jpg' },
-    { name: 'Cybersecurity', image: 'https://i.ibb.co/3mN5x4H/cybersecurity.jpg' },
-    { name: 'AR/VR Solutions', image: 'https://i.ibb.co/kMV0c0c/ar-vr.jpg' },
-    { name: 'Smart Manufacturing', image: 'https://i.ibb.co/ZBTX3Yf/smart-manufacturing.jpg' },
-    { name: 'IoT & Smart Devices', image: 'https://i.ibb.co/B2v5YyC/smartwatch.png' },
-    { name: 'GIS & Geospatial Tech', image: 'https://i.ibb.co/Gcx70y2/gis-geospatial.jpg' },
+    { name: 'AI & Robotics', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d1.jpg' },
+    { name: 'Aerospace & Drones', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d2.jpg' },
+    { name: 'Biotechnology', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d3.jpg' },
+    { name: 'Renewable Energy', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d4.jpg' },
+    { name: 'FinTech Solutions', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d5.jpg' },
+    { name: 'Cybersecurity', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d6.jpg' },
+    { name: 'AR/VR Solutions', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d7.jpg' },
+    { name: 'Smart Manufacturing', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d8.jpg' },
+    { name: 'IoT & Smart Devices', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d9.jpg' },
+    { name: 'GIS & Geospatial Tech', image: 'https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/d10.jpg' },
 ];
 
 const IndustryCard: React.FC<{ name: string; image: string; }> = ({ name, image }) => (

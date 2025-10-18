@@ -37,24 +37,28 @@ const AdminDashboard: React.FC = () => {
             try {
                 setLoading(true);
                 setError(null);
-                const response = await fetch('https://e201jmhxij.execute-api.ap-south-1.amazonaws.com/post/registrations');
+                const response = await fetch('https://uanaab3sjf.execute-api.ap-south-1.amazonaws.com/Get/registrations');
                 if (!response.ok) {
+                    const errorDetails = await response.text();
+                    console.error('API request failed with status:', response.status, 'Response body:', errorDetails);
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
                 
-                // Assuming the data is in a stringified 'body' property from AWS Lambda Proxy Integration
+                // The new API returns an array directly. The old API might have wrapped it in a `body` property.
+                // This logic handles both cases.
                 const parsedData = typeof data.body === 'string' ? JSON.parse(data.body) : data;
                 
                 if (Array.isArray(parsedData)) {
                     setSubmissions(parsedData.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
                 } else {
+                     console.error('API returned data but it was not an array:', parsedData);
                      throw new Error("Fetched data is not an array.");
                 }
 
             } catch (e: any) {
-                console.error("Failed to fetch submissions:", e);
-                setError(`Failed to load data. The API might be down, not support GET requests, or returned an unexpected format. (${e.message})`);
+                console.error("Failed to fetch submissions. Reason:", e.message, e);
+                setError(`Failed to load data. The API might be down or returned an unexpected format. Please check the console for more details. (${e.message})`);
             } finally {
                 setLoading(false);
             }
