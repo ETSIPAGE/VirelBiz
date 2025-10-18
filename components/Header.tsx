@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
+//hn
   return (
     <header className="bg-[#fbc819] shadow-sm sticky top-0 z-50">
       <div className="max-w-screen-xl mx-auto px-4">
