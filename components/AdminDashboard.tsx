@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { SearchIcon, DownloadIcon, RefreshIcon } from './icons/Icons';
+import { SearchIcon, DownloadIcon, RefreshIcon, EyeIcon } from './icons/Icons';
+import SubmissionDetailModal from './SubmissionDetailModal';
 
 type Submission = {
   [key: string]: any; 
@@ -24,6 +25,7 @@ const AdminDashboard: React.FC = () => {
     const [submissions, setSubmissions] = useState<Submission[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const [selectedSubmission, setSelectedSubmission] = useState<Submission | null>(null);
 
     // Filters and Search
     const [searchTerm, setSearchTerm] = useState('');
@@ -34,33 +36,47 @@ const AdminDashboard: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
 
-    useEffect(() => {
-        const fetchSubmissions = async () => {
-            try {
-                setLoading(true);
-                setError(null);
-                const response = await fetch('https://e201jmhxij.execute-api-ap-south-1.amazonaws.com/post/registrations');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                
-                // Assuming the data is in a stringified 'body' property from AWS Lambda Proxy Integration
-                const parsedData = typeof data.body === 'string' ? JSON.parse(data.body) : data;
-                
-                if (Array.isArray(parsedData)) {
-                    setSubmissions(parsedData.sort((a,b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
-                } else {
-                     throw new Error("Fetched data is not an array.");
-                }
-
-            } catch (e: any) {
-                console.error("Failed to fetch submissions:", e);
-                setError(`Failed to load data. The API might be down, not support GET requests, or returned an unexpected format. (${e.message})`);
-            } finally {
-                setLoading(false);
+    const fetchSubmissions = async () => {
+        try {
+            setLoading(true);
+            setError(null);
+            const response = await fetch('https://uanaab3sjf.execute-api.ap-south-1.amazonaws.com/Get/registrations');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        };
+            const data = await response.json();
+            
+            let submissionsData;
+            if (typeof data.body === 'string') {
+                submissionsData = JSON.parse(data.body);
+            } else if (Array.isArray(data)) {
+                submissionsData = data;
+            } else {
+                submissionsData = data;
+            }
+            
+            if (Array.isArray(submissionsData)) {
+                 const submissionsWithIds = submissionsData.map((item, index) => ({
+                    ...item,
+                    submissionId: item.submissionId || `${Date.now()}-${index}`,
+                }));
+                setSubmissions(submissionsWithIds.sort((a,b) => {
+                    if (!a.createdAt || !b.createdAt) return 0;
+                    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+                }));
+            } else {
+                 throw new Error("Fetched data is not in a recognized array format.");
+            }
+
+        } catch (e: any) {
+            console.error("Failed to fetch submissions:", e);
+            setError(`Failed to load data. The API might be down or returned an unexpected format. (${e.message})`);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
         fetchSubmissions();
     }, []);
 
@@ -175,13 +191,14 @@ const AdminDashboard: React.FC = () => {
                                 <th scope="col" className="px-6 py-3">Country</th>
                                 <th scope="col" className="px-6 py-3">City</th>
                                 <th scope="col" className="px-6 py-3 whitespace-nowrap">Submitted On</th>
+                                <th scope="col" className="px-6 py-3">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {loading ? (
-                                <tr><td colSpan={8} className="text-center p-8">Loading submissions...</td></tr>
+                                <tr><td colSpan={9} className="text-center p-8">Loading submissions...</td></tr>
                             ) : error ? (
-                                <tr><td colSpan={8} className="text-center p-8 text-red-600 bg-red-50">{error}</td></tr>
+                                <tr><td colSpan={9} className="text-center p-8 text-red-600 bg-red-50">{error}</td></tr>
                             ) : paginatedSubmissions.length > 0 ? (
                                 paginatedSubmissions.map((sub) => (
                                     <tr key={sub.submissionId} className="bg-white border-b border-yellow-200 hover:bg-yellow-100/50 group">
@@ -202,10 +219,16 @@ const AdminDashboard: React.FC = () => {
                                         <td className="px-6 py-4">{sub.country}</td>
                                         <td className="px-6 py-4">{sub.city}</td>
                                         <td className="px-6 py-4">{sub.createdAt ? new Date(sub.createdAt).toLocaleDateString() : 'N/A'}</td>
+                                        <td className="px-6 py-4">
+                                            <button onClick={() => setSelectedSubmission(sub)} className="flex items-center text-amber-600 hover:text-amber-800 font-medium p-1 rounded-md hover:bg-amber-100 transition-colors">
+                                                <EyeIcon className="h-5 w-5 mr-1"/>
+                                                View
+                                            </button>
+                                        </td>
                                     </tr>
                                 ))
                             ) : (
-                                <tr><td colSpan={8} className="text-center p-8">No submissions found.</td></tr>
+                                <tr><td colSpan={9} className="text-center p-8">No submissions found.</td></tr>
                             )}
                         </tbody>
                     </table>
@@ -228,6 +251,12 @@ const AdminDashboard: React.FC = () => {
                     </div>
                 )}
             </div>
+            {selectedSubmission && (
+                <SubmissionDetailModal 
+                    submission={selectedSubmission}
+                    onClose={() => setSelectedSubmission(null)}
+                />
+            )}
         </div>
     );
 };
