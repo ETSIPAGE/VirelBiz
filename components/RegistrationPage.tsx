@@ -59,7 +59,7 @@ const RegistrationPage: React.FC<RegistrationPageProps> = ({ onNavigate }) => {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-        const response = await fetch('https://e201jmhxij.execute-api.ap-south-1.amazonaws.com/post/registrations', {
+        const response = await fetch('https://yaxqnpi622.execute-api.ap-south-1.amazonaws.com/post/registrationa', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

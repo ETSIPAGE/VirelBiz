@@ -37,7 +37,7 @@ const AdminDashboard: React.FC = () => {
             try {
                 setLoading(true);
                 setError(null);
-                const response = await fetch('https://e201jmhxij.execute-api.ap-south-1.amazonaws.com/post/registrations');
+                const response = await fetch('https://uanaab3sjf.execute-api.ap-south-1.amazonaws.com/Get/registrations');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
