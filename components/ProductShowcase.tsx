@@ -6,9 +6,9 @@ const choiceProducts = {
     title: "Analyst's Choice",
     subtitle: "Goods & services handpicked by B2B sourcing & procurement specialists",
     items: [
-        { name: "Trending", description: "AI Vision Systems", image: "https://i.ibb.co/L5BfKcm/ai-vision-system.jpg" },
-        { name: "Hot Picks", description: "Long-Range Drones", image: "https://i.ibb.co/yqVqFbf/long-range-drone.jpg" },
-        { name: "Innovative", description: "Drone Swarm Controllers", image: "https://i.ibb.co/qYn02zM/drone-swarm.jpg" }
+        { name: "Trending", description: "AI Vision Systems", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t1.jpg" },
+        { name: "Hot Picks", description: "Long-Range Drones", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t2.jpg" },
+        { name: "Innovative", description: "Drone Swarm Controllers", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t3.jpg" }
     ]
 };
 
@@ -16,9 +16,9 @@ const mostOfferedServices = {
     title: "Most Offered Services",
     subtitle: "Find providers for logistics, inspection & more",
     items: [
-        { name: "Sourcing", description: "Sourcing & Procurement", image: "https://i.ibb.co/gJF9zYk/sourcing-service.jpg" },
-        { name: "Quality Control", description: "Inspection Services", image: "https://i.ibb.co/yY5tC0G/quality-control-service.jpg" },
-        { name: "Logistics", description: "Shipping & Freight", image: "https://i.ibb.co/4Z5fLqG/logistics-service.jpg" }
+        { name: "Sourcing", description: "Sourcing & Procurement", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t4.jpg" },
+        { name: "Quality Control", description: "Inspection Services", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t5.jpg" },
+        { name: "Logistics", description: "Shipping & Freight", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t6.jpg" }
     ]
 };
 
@@ -26,9 +26,9 @@ const oemProducts = {
     title: "OEM Products",
     subtitle: "Reliable OEM companies offering thousands of popular OEM parts & items",
     items: [
-        { name: "US$ 55", description: "Quadcopter Motors", image: "https://i.ibb.co/GvxB2sR/quadcopter-motor.jpg", subInfo: "5 Pieces" },
-        { name: "US$ 52", description: "Flight Control Boards", image: "https://i.ibb.co/kH5gY1z/flight-controller.jpg", subInfo: "100 Pieces" },
-        { name: "US$ 4.1", description: "High-Res Drone Cameras", image: "https://i.ibb.co/xGL1FNs/drone-camera.jpg", subInfo: "1000 Boxes" }
+        { name: "US$ 55", description: "Quadcopter Motors", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t7.jpg", subInfo: "5 Pieces" },
+        { name: "US$ 52", description: "Flight Control Boards", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t8.jpg", subInfo: "100 Pieces" },
+        { name: "US$ 4.1", description: "High-Res Drone Cameras", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/t9.webp", subInfo: "1000 Boxes" }
     ]
 };
 const newProducts = [
@@ -58,11 +58,11 @@ const companies = [
 ];
 
 const professionals = [
-    { name: "Jane Doe", title: "AI Ethics Consultant", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/istockphoto-2218963506-2048x2048.jpg" },
+    { name: "Jhon Doe", title: "AI Ethics Consultant", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/istockphoto-2218963506-2048x2048.jpg" },
     { name: "John Smith", title: "Logistics Optimizer", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/pr4.jpg" },
-    { name: "Emily Chen", title: "Lead Product Designer", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/austin-distel-7uoMmzPd2JA-unsplash.jpg" },
-    { name: "Michael B.", title: "Manufacturing Expert", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/christina-wocintechchat-com-PlikkWB79qs-unsplash.jpg" },
-    { name: "Sofia Khan", title: "IP Attorney", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/pr1.jpg" },
+    { name: "Michael B.", title: "Lead Product Designer", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/austin-distel-7uoMmzPd2JA-unsplash.jpg" },
+    { name: "Emily Chen", title: "Manufacturing Expert", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/christina-wocintechchat-com-PlikkWB79qs-unsplash.jpg" },
+    { name: "Sachin Bhat", title: "IP Attorney", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/pr1.jpg" },
     { name: "David Lee", title: "Growth Marketing", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/pr2.jpg" },
 ];
 const events = [
