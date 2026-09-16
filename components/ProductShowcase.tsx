@@ -49,11 +49,11 @@ const services = [
     { name: "IP & Patent Protection", description: "Safeguard your innovations", category: "Legal", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+6.jpg" },
 ];
 const companies = [
-    { name: "Dronetv Simulator", industry: "Software Devlopment", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Dronesimulator.png" },
-    { name: "Drone Acadamy", industry: "Drone Acadamy", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/IDA.png" },
-    { name: "IPage UMS Solutions", industry: "Drone Services", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/473835922_1460897314830430_6571106853468755997_n.jpg" },
-    { name: "IPage Vision", industry: "Architecture", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/ipagevisionlogo.png" },
-    { name: "DroneTv", industry: "Media", logo: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Drone+tv+.in.png" },
+    { name: "Dronetv Simulator", industry: "Software Devlopment", logo: "/drone-sim.png" },
+    { name: "Drone Acadamy", industry: "Drone Acadamy", logo: "/india-drone-academy-black.png" },
+    { name: "IPage UMS Solutions", industry: "Drone Services", logo: "/ipageums.png" },
+    { name: "IPage Vision", industry: "Architecture", logo: "/vision.png" },
+    { name: "DroneTv", industry: "Media", logo: "/drone-tv-black.png" },
     // { name: "Visionary Designs", industry: "Branding & Marketing", logo: "https://i.ibb.co/tZJ5rYj/logo-visionary-designs.png" },
 ];
 

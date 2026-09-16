@@ -15,7 +15,7 @@ const TopBanner: React.FC<FooterProps> = ({ onNavigate }) => (
       </p>
     </div>
     <div className="flex items-center space-x-4">
-        <img src="https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Logo's+(344+x+169+px).gif" alt="Trade show attendees" className="h-16" />
+        <img src="/viralbiz-no-bg.png" alt="VirelBiz Logo" className="h-16 w-auto" />
         <button 
             onClick={() => onNavigate('register')}
             className="bg-yellow-50 text-amber-800 font-bold py-2 px-6 rounded-md hover:bg-yellow-100 transition-all shadow-md flex-shrink-0">
