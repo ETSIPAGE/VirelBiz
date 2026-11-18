@@ -63,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
         {/* Top Header Bar */}
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate('home')}>
-            <img src="/virelbiz-black.png" alt="VirelBiz Logo" className="h-20 w-auto" />
+            <img src="/virelbiz-black.png" alt="VirelBiz Logo" className="h-16 w-auto" />
           </div>
 
           {/* Search Bar */}
