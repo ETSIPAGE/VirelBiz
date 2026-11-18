@@ -49,12 +49,13 @@ const services = [
     { name: "IP & Patent Protection", description: "Safeguard your innovations", category: "Legal", image: "https://virelbizlandingpage.s3.ap-south-1.amazonaws.com/Service+6.jpg" },
 ];
 const companies = [
-    { name: "Dronetv Simulator", industry: "Software Devlopment", logo: "/drone-sim.png" },
-    { name: "Drone Acadamy", industry: "Drone Acadamy", logo: "/india-drone-academy-black.png" },
+    { name: "IPage Group", industry: "Group", logo: "/ipage-group.png" },
     { name: "IPage UMS Solutions", industry: "Drone Services", logo: "/ipageums.png" },
+    { name: "IPage Drone", industry: "Drone Solutions", logo: "/drone-sim.png" },
+    { name: "India Drone Academy", industry: "Drone Academy", logo: "/india-drone-academy-black.png" },
     { name: "IPage Vision", industry: "Architecture", logo: "/vision.png" },
     { name: "DroneTv", industry: "Media", logo: "/drone-tv-black.png" },
-    // { name: "Visionary Designs", industry: "Branding & Marketing", logo: "https://i.ibb.co/tZJ5rYj/logo-visionary-designs.png" },
+    { name: "Dev AI Labs", industry: "AI Platform", logo: "/dev-ai-labs.png" },
 ];
 
 const professionals = [
